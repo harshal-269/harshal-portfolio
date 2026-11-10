@@ -6,6 +6,7 @@ import {
   Trophy,
   BookOpen,
   Target,
+  ArrowUpRight,
 } from "lucide-react";
 
 const topics = [
@@ -46,7 +47,6 @@ const Achievements = () => {
   return (
     <section id="achievements" className="bg-slate-50 px-6 py-24">
       <div className="mx-auto max-w-7xl">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,7 +69,6 @@ const Achievements = () => {
         </motion.div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-2">
-
           {/* LEFT: DSA TOPICS */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -149,8 +148,42 @@ const Achievements = () => {
               </p>
             </div>
           </div>
-
         </div>
+
+        {/* LEETCODE PROFILE */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-10 flex flex-col items-start justify-between gap-5 rounded-2xl border border-slate-200 bg-white p-7 sm:flex-row sm:items-center sm:p-9"
+        >
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-blue-700">
+              Coding Profile
+            </p>
+
+            <h3 className="mt-2 text-2xl font-semibold text-slate-900">
+              Find me on LeetCode
+            </h3>
+
+            <p className="mt-2 text-sm leading-7 text-slate-600">
+              Explore my coding practice, problem-solving journey and
+              solutions to Data Structures and Algorithms problems.
+            </p>
+          </div>
+
+          <a
+            href="https://leetcode.com/u/harshal-269/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-2 rounded-lg bg-slate-900 px-6 py-3.5 text-sm font-medium text-white transition hover:bg-blue-700"
+          >
+            <Code2 size={18} />
+            View LeetCode Profile
+            <ArrowUpRight size={17} />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

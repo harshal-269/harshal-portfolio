@@ -1,22 +1,36 @@
 
 import { motion } from "framer-motion";
-import { GraduationCap, Code2, Target } from "lucide-react";
+import {
+  GraduationCap,
+  Code2,
+  Target,
+  Lightbulb,
+} from "lucide-react";
 
 const highlights = [
   {
     icon: GraduationCap,
     title: "Engineering Student",
-    description: "Pursuing Artificial Intelligence and Data Science.",
+    description:
+      "Pursuing a degree in Artificial Intelligence and Data Science, with an interest in software engineering.",
   },
   {
     icon: Code2,
-    title: "Backend Focused",
-    description: "Interested in Java, Spring Boot and full-stack development.",
+    title: "Backend & Full-Stack Development",
+    description:
+      "Building applications using Java, Spring Boot, React, TypeScript and MySQL.",
   },
   {
     icon: Target,
-    title: "Continuous Learner",
-    description: "Improving through projects, DSA and practical problem-solving.",
+    title: "Problem Solver",
+    description:
+      "Practicing Data Structures and Algorithms to strengthen logical thinking and coding skills.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Learning by Building",
+    description:
+      "Applying concepts through practical projects and exploring real-world software development.",
   },
 ];
 
@@ -24,7 +38,6 @@ const About = () => {
   return (
     <section id="about" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,28 +53,55 @@ const About = () => {
           </h2>
 
           <div className="mt-12 grid gap-14 lg:grid-cols-2">
-
+            {/* ABOUT CONTENT */}
             <div>
               <h3 className="text-2xl font-semibold leading-relaxed text-slate-900">
-                I enjoy building things, solving problems, and learning how
-                software works behind the scenes.
+                I enjoy turning ideas into practical software solutions
+                and understanding how systems work behind the scenes.
               </h3>
 
               <p className="mt-6 leading-8 text-slate-600">
                 I'm an Artificial Intelligence and Data Science engineering
-                student with a strong interest in software development.
-                My current focus is backend engineering with Java and
-                Spring Boot, while also developing my frontend skills.
+                student interested in backend engineering and full-stack
+                development. My primary focus is Java and Spring Boot,
+                where I work on building REST APIs, implementing
+                authentication and developing application logic.
               </p>
 
               <p className="mt-5 leading-8 text-slate-600">
-                I believe the best way to learn technology is by building
-                real applications. Through personal projects and consistent
-                problem-solving practice, I'm working towards becoming
-                a well-rounded software developer.
+                Alongside backend development, I use React and TypeScript
+                to create user interfaces and MySQL to manage application
+                data. I enjoy bringing these technologies together to
+                build complete applications.
               </p>
+
+              <p className="mt-5 leading-8 text-slate-600">
+                Beyond projects, I consistently practice Data Structures
+                and Algorithms and strengthen my understanding of
+                fundamental computer science concepts. I believe in
+                continuous learning, consistency and learning through
+                hands-on experience.
+              </p>
+
+              {/* INTERESTS */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                {[
+                  "Backend Engineering",
+                  "Full-Stack Development",
+                  "Problem Solving",
+                  "Software Engineering",
+                ].map((interest) => (
+                  <span
+                    key={interest}
+                    className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700"
+                  >
+                    {interest}
+                  </span>
+                ))}
+              </div>
             </div>
 
+            {/* HIGHLIGHTS */}
             <div className="space-y-5">
               {highlights.map((item, index) => {
                 const Icon = item.icon;
@@ -92,7 +132,6 @@ const About = () => {
                 );
               })}
             </div>
-
           </div>
         </motion.div>
       </div>

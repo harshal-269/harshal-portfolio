@@ -7,19 +7,15 @@ import {
   Globe,
   Wrench,
   Brain,
+  Layers,
 } from "lucide-react";
 
 const skillGroups = [
   {
-    title: "Programming Languages",
-    icon: Code2,
-    description: "Languages I use to solve problems and build applications.",
-    skills: ["Java", "JavaScript", "TypeScript", "SQL", "Python"],
-  },
-  {
     title: "Backend Development",
     icon: Server,
-    description: "Building APIs, application logic and secure backend systems.",
+    description: "Building REST APIs, application logic and secure backend systems.",
+    featured: true,
     skills: [
       "Spring Boot",
       "Spring Security",
@@ -28,6 +24,12 @@ const skillGroups = [
       "REST APIs",
       "JWT Authentication",
     ],
+  },
+  {
+    title: "Programming Languages",
+    icon: Code2,
+    description: "Languages I use to solve problems and build applications.",
+    skills: ["Java", "JavaScript", "TypeScript", "SQL", "Python"],
   },
   {
     title: "Frontend Development",
@@ -48,9 +50,9 @@ const skillGroups = [
     skills: ["Git", "GitHub", "Postman", "IntelliJ IDEA", "VS Code"],
   },
   {
-    title: "Computer Science",
+    title: "Computer Science Fundamentals",
     icon: Brain,
-    description: "Core concepts and problem-solving foundations.",
+    description: "Core concepts that support my software engineering foundation.",
     skills: [
       "Data Structures & Algorithms",
       "OOP",
@@ -80,12 +82,52 @@ const Skills = () => {
           </h2>
 
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Technologies and concepts I work with while developing
-            applications and strengthening my software engineering skills.
+            My technical skills span backend engineering, frontend
+            development, databases and core computer science concepts.
+            I continuously learn and apply these technologies through
+            practical projects.
           </p>
         </motion.div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* PRIMARY TECHNOLOGY STACK */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-10 rounded-2xl border border-blue-100 bg-white p-6 sm:p-8"
+        >
+          <div className="flex items-center gap-3">
+            <div className="rounded-xl bg-blue-50 p-3 text-blue-700">
+              <Layers size={23} />
+            </div>
+
+            <div>
+              <h3 className="font-semibold text-slate-900">
+                Primary Technology Stack
+              </h3>
+              <p className="mt-1 text-sm text-slate-500">
+                Technologies I focus on for full-stack application development.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {["Java", "Spring Boot", "Spring Security", "React", "TypeScript", "MySQL"].map(
+              (technology) => (
+                <span
+                  key={technology}
+                  className="rounded-lg border border-blue-100 bg-blue-50 px-4 py-2.5 text-sm font-semibold text-blue-800"
+                >
+                  {technology}
+                </span>
+              )
+            )}
+          </div>
+        </motion.div>
+
+        {/* SKILL CATEGORIES */}
+        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, index) => {
             const Icon = group.icon;
 
@@ -96,7 +138,7 @@ const Skills = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="rounded-xl border border-slate-200 bg-white p-7 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/50"
+                className="rounded-xl border border-slate-200 bg-white p-7 transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg hover:shadow-slate-200/50"
               >
                 <div className="inline-flex rounded-xl bg-blue-50 p-3 text-blue-700">
                   <Icon size={24} />

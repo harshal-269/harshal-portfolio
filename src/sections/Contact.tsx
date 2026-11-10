@@ -13,12 +13,14 @@ import {
 
 const FORM_ENDPOINT = "https://formspree.io/f/xyeerpkr";
 
-type FormStatus = "idle" | "submitting" | "success" | "error";
-
 const Contact = () => {
-  const [status, setStatus] = useState<FormStatus>("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
     event.preventDefault();
 
     const form = event.currentTarget;
@@ -28,9 +30,7 @@ const Contact = () => {
       const response = await fetch(FORM_ENDPOINT, {
         method: "POST",
         body: new FormData(form),
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json" },
       });
 
       if (response.ok) {
@@ -48,14 +48,7 @@ const Contact = () => {
     <section id="contact" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
 
-        {/* SECTION HEADING */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-3xl text-center"
-        >
+        <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-700">
             Get in touch
           </p>
@@ -68,12 +61,11 @@ const Contact = () => {
             Have an opportunity, a project idea, or simply want to connect?
             I'd love to hear from you.
           </p>
-        </motion.div>
+        </div>
 
-        {/* CONTACT CONTENT */}
         <div className="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-2">
 
-          {/* LEFT SIDE */}
+          {/* CONTACT INFORMATION */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -86,12 +78,82 @@ const Contact = () => {
 
             <p className="mt-4 leading-7 text-slate-600">
               I'm interested in software development opportunities,
-              collaborating on meaningful projects, and connecting with
-              fellow developers and technology enthusiasts.
+              meaningful collaborations and connecting with fellow
+              developers and technology enthusiasts.
             </p>
 
             <div className="mt-9 space-y-5">
 
+              {/* PROFESSIONAL EMAIL */}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=darandaleharshal3933@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 rounded-xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-md"
+              >
+                <div className="rounded-xl bg-blue-50 p-3 text-blue-700">
+                  <Mail size={23} />
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-semibold text-slate-900">
+                    Professional Email
+                  </h4>
+                  <p className="mt-1 break-all text-sm text-slate-500">
+                    darandaleharshal3933@gmail.com
+                  </p>
+                </div>
+
+                <ArrowUpRight size={19} className="shrink-0 text-slate-400" />
+              </a>
+
+              {/* ALTERNATE EMAIL */}
+              <a
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=harshaldev20@gmail.com"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 rounded-xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-md"
+              >
+                <div className="rounded-xl bg-blue-50 p-3 text-blue-700">
+                  <Mail size={23} />
+                </div>
+
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-semibold text-slate-900">
+                    Alternate Email
+                  </h4>
+                  <p className="mt-1 break-all text-sm text-slate-500">
+                    harshaldev20@gmail.com
+                  </p>
+                </div>
+
+                <ArrowUpRight size={19} className="shrink-0 text-slate-400" />
+              </a>
+
+              {/* LINKEDIN */}
+              <a
+                href="https://www.linkedin.com/in/harshal-darandale-65a5132b5/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 rounded-xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-md"
+              >
+                <div className="rounded-xl bg-blue-50 p-3 text-blue-700">
+                  <Code2 size={23} />
+                </div>
+
+                <div className="flex-1">
+                  <h4 className="font-semibold text-slate-900">
+                    LinkedIn
+                  </h4>
+                  <p className="mt-1 text-sm text-slate-500">
+                    Connect with me professionally
+                  </p>
+                </div>
+
+                <ArrowUpRight size={19} className="text-slate-400" />
+              </a>
+
+              {/* GITHUB */}
               <a
                 href="https://github.com/harshal-269"
                 target="_blank"
@@ -108,28 +170,6 @@ const Contact = () => {
                   </h4>
                   <p className="mt-1 text-sm text-slate-500">
                     Explore my projects and repositories
-                  </p>
-                </div>
-
-                <ArrowUpRight size={19} className="text-slate-400" />
-              </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-4 rounded-xl border border-slate-200 p-5 transition hover:border-blue-300 hover:shadow-md"
-              >
-                <div className="rounded-xl bg-blue-50 p-3 text-blue-700">
-                  <Code2 size={23} />
-                </div>
-
-                <div className="flex-1">
-                  <h4 className="font-semibold text-slate-900">
-                    LinkedIn
-                  </h4>
-                  <p className="mt-1 text-sm text-slate-500">
-                    Connect with me professionally
                   </p>
                 </div>
 
@@ -154,7 +194,7 @@ const Contact = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT SIDE: CONTACT FORM */}
+          {/* CONTACT FORM */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -162,19 +202,16 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="rounded-2xl border border-slate-200 bg-slate-50 p-7 sm:p-9"
           >
-            <div className="mb-7">
-              <h3 className="text-2xl font-semibold text-slate-900">
-                Send me a message
-              </h3>
+            <h3 className="text-2xl font-semibold text-slate-900">
+              Send me a message
+            </h3>
 
-              <p className="mt-2 text-sm text-slate-500">
-                Fill in the details below. I'll get back to you.
-              </p>
-            </div>
+            <p className="mt-2 text-sm text-slate-500">
+              Fill in the details below. I'll get back to you.
+            </p>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="mt-7 space-y-5">
 
-              {/* HONEYPOT SPAM FIELD */}
               <input
                 type="text"
                 name="_gotcha"
@@ -184,13 +221,9 @@ const Contact = () => {
               />
 
               <div>
-                <label
-                  htmlFor="name"
-                  className="mb-2 block text-sm font-medium text-slate-700"
-                >
+                <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-700">
                   Your Name
                 </label>
-
                 <input
                   id="name"
                   type="text"
@@ -198,18 +231,14 @@ const Contact = () => {
                   placeholder="Enter your name"
                   required
                   maxLength={100}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="email"
-                  className="mb-2 block text-sm font-medium text-slate-700"
-                >
+                <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">
                   Email Address
                 </label>
-
                 <input
                   id="email"
                   type="email"
@@ -217,18 +246,14 @@ const Contact = () => {
                   placeholder="you@example.com"
                   required
                   maxLength={254}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="subject"
-                  className="mb-2 block text-sm font-medium text-slate-700"
-                >
+                <label htmlFor="subject" className="mb-2 block text-sm font-medium text-slate-700">
                   Subject
                 </label>
-
                 <input
                   id="subject"
                   type="text"
@@ -236,18 +261,14 @@ const Contact = () => {
                   placeholder="What would you like to discuss?"
                   required
                   maxLength={150}
-                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className="w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 />
               </div>
 
               <div>
-                <label
-                  htmlFor="message"
-                  className="mb-2 block text-sm font-medium text-slate-700"
-                >
+                <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">
                   Message
                 </label>
-
                 <textarea
                   id="message"
                   name="message"
@@ -255,27 +276,19 @@ const Contact = () => {
                   placeholder="Write your message here..."
                   required
                   maxLength={3000}
-                  className="w-full resize-y rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+                  className="w-full resize-y rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
                 />
               </div>
 
-              {/* SUCCESS MESSAGE */}
               {status === "success" && (
-                <div
-                  role="status"
-                  className="flex items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800"
-                >
+                <div role="status" className="flex items-center gap-3 rounded-lg border border-green-200 bg-green-50 p-4 text-sm text-green-800">
                   <CheckCircle2 size={20} />
                   Your message was sent successfully. Thank you!
                 </div>
               )}
 
-              {/* ERROR MESSAGE */}
               {status === "error" && (
-                <div
-                  role="alert"
-                  className="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700"
-                >
+                <div role="alert" className="flex items-center gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
                   <AlertCircle size={20} />
                   Something went wrong. Please try again.
                 </div>

@@ -22,3 +22,8 @@ body {
   background: #DBEAFE;
   color: #172B4D;
 }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}

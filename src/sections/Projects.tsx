@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Code2, Layers } from "lucide-react";
+import { ArrowUpRight, Code2, Layers, Globe } from "lucide-react";
 
 const projects = [
   {
@@ -25,6 +25,7 @@ const projects = [
       "JWT",
     ],
     github: "https://github.com/harshal-269/Worker-Management",
+    live: "http://workermanagement.vercel.app/",
   },
   {
     number: "02",
@@ -46,6 +47,7 @@ const projects = [
       "MySQL",
     ],
     github: "https://github.com/harshal-269/NexDrive",
+    live: null,
   },
 ];
 
@@ -53,7 +55,6 @@ const Projects = () => {
   return (
     <section id="projects" className="bg-white px-6 py-24">
       <div className="mx-auto max-w-7xl">
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,16 +108,31 @@ const Projects = () => {
                   {project.description}
                 </p>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="mt-8 inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-700"
-                >
-                  <Code2 size={17} />
-                  View Source Code
-                  <ArrowUpRight size={17} />
-                </a>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 rounded-lg bg-blue-700 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-800"
+                    >
+                      <Globe size={17} />
+                      Live Demo
+                      <ArrowUpRight size={17} />
+                    </a>
+                  )}
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-5 py-3 text-sm font-medium text-white transition hover:bg-slate-700"
+                  >
+                    <Code2 size={17} />
+                    View Source Code
+                    <ArrowUpRight size={17} />
+                  </a>
+                </div>
               </div>
 
               <div className="rounded-xl border border-slate-200 bg-white p-6 md:p-8">

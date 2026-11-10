@@ -7,6 +7,8 @@ import {
   Database,
   Server,
   Layers,
+  Mail,
+  Code,
 } from "lucide-react";
 
 const technologies = [
@@ -35,7 +37,7 @@ const Hero = () => {
           <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2">
             <span className="h-2 w-2 rounded-full bg-blue-600" />
             <span className="text-sm font-medium text-blue-700">
-              Java Full Stack Developer
+              Java & Spring Boot Developer
             </span>
           </div>
 
@@ -43,14 +45,16 @@ const Hero = () => {
             Hi, I'm Harshal.
             <br />
             <span className="text-blue-700">
-              I build for the web.
+              I build real-world applications.
             </span>
           </h1>
 
           <p className="mt-7 max-w-xl text-lg leading-8 text-slate-600">
-            I'm an engineering student passionate about software development,
-            backend engineering, and building practical applications.
-            I enjoy turning ideas into reliable digital experiences.
+            I'm an Artificial Intelligence and Data Science engineering
+            student focused on Java backend development and full-stack
+            engineering. I enjoy building practical applications using
+            Spring Boot, React and modern web technologies while
+            continuously improving my problem-solving skills.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-4">
@@ -63,19 +67,52 @@ const Hero = () => {
             </a>
 
             <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-medium text-slate-800 transition hover:border-blue-500 hover:text-blue-700"
+            >
+              <Mail size={17} />
+              Contact Me
+            </a>
+          </div>
+
+          <div className="mt-5 flex flex-wrap items-center gap-5">
+            <a
               href="https://github.com/harshal-269"
               target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-6 py-3.5 text-sm font-medium text-slate-800 transition hover:border-slate-500"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-blue-700"
             >
+              <Code2 size={17} />
               GitHub
-              <ArrowUpRight size={18} />
+              <ArrowUpRight size={15} />
             </a>
+
+            <a
+              href="https://www.linkedin.com/in/harshal-darandale-65a5132b5/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-blue-700"
+            >
+              <Code2 size={17} />
+              LinkedIn
+              <ArrowUpRight size={15} />
+            </a>
+
+            <a
+href="https://leetcode.com/u/harshal-269/"
+target="_blank"
+rel="noopener noreferrer"
+className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-blue-700"
+>
+<Code size={17} />
+LeetCode
+<ArrowUpRight size={15} />
+</a>
           </div>
 
           <div className="mt-12 flex items-center gap-3 text-sm text-slate-500">
             <span className="h-px w-10 bg-slate-300" />
-            Currently learning, building and improving.
+            Learning, building and solving problems.
           </div>
         </motion.div>
 
