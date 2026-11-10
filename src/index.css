@@ -2,12 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
+/* Enable class-based dark mode in Tailwind CSS 4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -16,6 +20,7 @@ body {
   background: #F8FAFC;
   color: #172B4D;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::selection {
@@ -23,7 +28,41 @@ body {
   color: #172B4D;
 }
 
+/* Light theme */
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  color-scheme: light;
+}
+
+/* Dark theme */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background: #0F172A;
+  color: #E2E8F0;
+}
+
+html.dark ::selection {
+  background: #1E40AF;
+  color: #FFFFFF;
+}
+
+/* Smooth theme transitions */
+body,
+body * {
+  transition-property: background-color, border-color, color, box-shadow;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
